@@ -344,5 +344,13 @@ html, body {
     window.addEventListener('resize', setBreakpoint);
 })();
 </script>
+<script>
+(function() {
+    var params = window.location.search;
+    if (!params) return;
+    var link = document.querySelector('a[aria-label="Raio-X do CPF"]');
+    if (link) link.href = 'https://confiescore.com/raio-x' + params;
+})();
+</script>
 </body>
 </html>

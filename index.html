@@ -293,21 +293,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <figure><img alt="Raio-X do CPF" src="/bioig/assets/card-raio-x.webp" width="1536" height="535"/></figure>
 </li>
 <li class="aulas">
-<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20avaliar%20minha%20situa%C3%A7%C3%A3o%20para%20entender%20se%20existe%20possibilidade%20de%20limpar%20meu%20nome." target="_blank" aria-label="Limpa Nome"></a>
+<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20avaliar%20minha%20situa%C3%A7%C3%A3o%20para%20entender%20se%20existe%20possibilidade%20de%20limpar%20meu%20nome." target="_blank" aria-label="Limpa Nome" data-wa="limpa-nome"></a>
 <h3>Limpa Nome</h3>
 <p>Você pode ter seu nome limpo, mesmo sem pagar suas dívidas. <br/>Entenda sobre a liminar mais famosa do Brasil.</p>
 <span></span>
 <figure><img alt="Limpa Nome" src="/bioig/assets/card-limpa-nome.webp" width="1536" height="517"/></figure>
 </li>
 <li class="sav">
-<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20entender%20o%20que%20pode%20estar%20dificultando%20minha%20an%C3%A1lise%20banc%C3%A1ria%20e%20como%20posso%20melhorar%20isso." target="_blank" aria-label="Rating Comercial"></a>
+<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20entender%20o%20que%20pode%20estar%20dificultando%20minha%20an%C3%A1lise%20banc%C3%A1ria%20e%20como%20posso%20melhorar%20isso." target="_blank" aria-label="Rating Comercial" data-wa="rating-comercial"></a>
 <h3>Rating Comercial</h3>
 <p>Chega de nome travado. <br/>Tenha um CPF com muitas aprovações.</p>
 <span></span>
 <figure><img alt="Rating Comercial" src="/bioig/assets/card-rating-comercial.webp" width="1536" height="527"/></figure>
 </li>
 <li class="transmissao">
-<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20entender%20melhor%20o%20meu%20caso%20para%20saber%20qual%20caminho%20faz%20mais%20sentido%20para%20mim." target="_blank" aria-label="WhatsApp"></a>
+<a href="https://wa.me/5516992279954?text=Oi%2C%20vim%20pelo%20Instagram%20da%20Confie%20Score%20e%20quero%20entender%20melhor%20o%20meu%20caso%20para%20saber%20qual%20caminho%20faz%20mais%20sentido%20para%20mim." target="_blank" aria-label="WhatsApp" data-wa="whatsapp"></a>
 <h3>WhatsApp</h3>
 <p>Tem dúvida sobre seu caso? <br/>Fale com a equipe e entenda o caminho mais rápido para avançar.</p>
 <span></span>
@@ -369,6 +369,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         new URLSearchParams(window.location.search).forEach(function(v, k){ url.searchParams.set(k, v); });
         link.href = url.toString();
     } catch (e) {}
+})();
+</script>
+<script>
+// Botões de WhatsApp passam pelo contador do servidor (/api/zap), que alterna os dois números.
+// Sem JavaScript, ou se este script falhar, os links continuam apontando direto para o WhatsApp.
+(function() {
+    var links = document.querySelectorAll('a[data-wa]');
+    for (var i = 0; i < links.length; i++) {
+        links[i].href = '/bioig/api/zap?m=' + encodeURIComponent(links[i].getAttribute('data-wa'));
+    }
 })();
 </script>
 </body>
